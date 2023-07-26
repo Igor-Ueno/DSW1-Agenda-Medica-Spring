@@ -3,7 +3,7 @@
 ## Diretórios com arquivos Java
 
 - config: algumas configurações que não entendi muito bem.
-- controller: lógica de acesso ao banco de dados (regras de negócios).
+- controller: lógica de acesso ao banco de dados, i.e., regras de negócios (comparado aos outros, esse é o que vai dar mais trabalho, mas não deve ser tanto assim).
 - conversor: converte o ID de String para Long.
 - dao: herdado da superclasse "CrudRepository".
 - domain: classes com as especificações do banco de dados sobre os atributos, além dos métodos get e set.
