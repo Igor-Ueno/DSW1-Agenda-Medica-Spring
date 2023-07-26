@@ -12,9 +12,9 @@ public interface IConsultaDAO extends CrudRepository<Consulta, Long>{
     
     Consulta findById(long id);
 	
-	Consulta findByCPF(String CPF);
+	// Consulta findByCPF(String CPF);
 
-    Consulta findByCRM(String CRM);
+    // Consulta findByCRM(String CRM);
 
 	List<Consulta> findAll();
 	
@@ -22,6 +22,6 @@ public interface IConsultaDAO extends CrudRepository<Consulta, Long>{
 
 	void deleteById(Long id);
 
-    void deleteByConsulta(String Consulta);
+    // void deleteByConsulta(String Consulta);
 
 }

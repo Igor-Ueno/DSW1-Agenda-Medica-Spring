@@ -13,9 +13,9 @@ public interface IUsuariosDAO extends CrudRepository<Usuarios, Long> {
 	
 	Usuarios findById(long id);
 
-    Usuarios findByCPF(String CPF);
+    // Usuarios findByCPF(String CPF);
 
-    Usuarios findByCRM(String CRM);
+    // Usuarios findByCRM(String CRM);
 
 	List<Usuarios> findAll();
 	
@@ -23,9 +23,9 @@ public interface IUsuariosDAO extends CrudRepository<Usuarios, Long> {
 
 	void deleteById(Long id);
 
-    void deleteByLogin(String Login);
+    // void deleteByLogin(String Login);
 
-    void update(Usuarios usuarios);
+    // void update(Usuarios usuarios);
 
     // @Query("SELECT u FROM Usuarios u WHERE u.papel = :papel")
     // public Usuarios getPacientes(@Param("papel") String papel);
