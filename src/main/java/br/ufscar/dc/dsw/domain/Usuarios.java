@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "Usuario")
+@Table(name = "Usuarios")
 public class Usuarios extends AbstractEntity<Long> {
   
 	@NotBlank
