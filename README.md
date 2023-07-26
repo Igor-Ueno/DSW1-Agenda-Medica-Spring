@@ -29,3 +29,7 @@
 - Diretório "static"
     - Arquivo CSS.
     - Imagens.
+
+## Envio de email
+
+- Entender e implementar o envio de email automático que ficou faltando no último trabalho.
