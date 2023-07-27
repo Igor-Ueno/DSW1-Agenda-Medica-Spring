@@ -14,7 +14,7 @@ import java.time.LocalDate;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "Paciente")
+@Table(name = "Usuario")
 public class Paciente extends Usuario {
     
     @NotBlank

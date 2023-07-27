@@ -71,7 +71,8 @@ public class MedicoController {
 	public String excluir(@PathVariable("CRM") String CRM, ModelMap model) {
 		service.excluirPorCRM(CRM);
 		model.addAttribute("sucess", "medico.delete.sucess");
-		return listar(model);
+		// return listar(model);
+		return "redirect:/medicos/listar";
 	}
 
 }

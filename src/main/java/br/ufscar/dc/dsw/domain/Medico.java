@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "Medico")
+@Table(name = "Usuario")
 public class Medico extends Usuario{
     @NotBlank
     @Column(nullable = true, length = 13, unique = true)

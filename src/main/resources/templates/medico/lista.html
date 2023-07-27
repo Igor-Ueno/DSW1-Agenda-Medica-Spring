@@ -46,12 +46,10 @@
                             </a>
                         </td>
                         <td>
-                            <button
-                                th:id="${'btn_medicos/excluir/' + medico.CRM}"
-                                type="button" class="btn btn-danger btn-sm"
-                                data-toggle="modal" data-target="#myModal">
-                                <span class="oi oi-circle-x" th:title="#{link.excluir.label}" aria-hidden="true"></span>
-                            </button>
+                            <a class="btn btn-danger btn-sm" th:href="@{/medicos/excluir/{CRM} (CRM=${medico.CRM}) }"
+                                role="button"> 
+                                <span class="oi oi-circle-x" th:title="#{link.excluir.label}" aria-hidden="true"> </span>
+                            </a>
                         </td>
                     </tr>
                 </tbody>

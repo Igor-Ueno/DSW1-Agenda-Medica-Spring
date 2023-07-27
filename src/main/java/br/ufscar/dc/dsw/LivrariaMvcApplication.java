@@ -33,7 +33,7 @@ public class LivrariaMvcApplication {
 			m1.setPassword(encoder.encode("123"));
 			m1.setRole("med");
 			m1.setName("Alexandre");
-			m1.setCRM("CRM/SP123456");
+			m1.setCRM("CRM-SP123456");
 			m1.setEspecialidade("Cardiologista");
 			m1.setEnabled(true);
 			medicoDAO.save(m1);
@@ -43,7 +43,7 @@ public class LivrariaMvcApplication {
 			m2.setPassword(encoder.encode("123"));
 			m2.setRole("med");
 			m2.setName("Eduardo");
-			m2.setCRM("CRM/SP123457");
+			m2.setCRM("CRM-SP123457");
 			m2.setEspecialidade("Endocrinologista");
 			m2.setEnabled(true);
 			medicoDAO.save(m2);
