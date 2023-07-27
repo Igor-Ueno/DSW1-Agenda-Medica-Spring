@@ -10,10 +10,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import br.ufscar.dc.dsw.dao.IEditoraDAO;
 import br.ufscar.dc.dsw.dao.ILivroDAO;
+import br.ufscar.dc.dsw.dao.IMedicoDAO;
 import br.ufscar.dc.dsw.dao.IUsuarioDAO;
 import br.ufscar.dc.dsw.domain.Editora;
 import br.ufscar.dc.dsw.domain.Livro;
 import br.ufscar.dc.dsw.domain.Usuario;
+import br.ufscar.dc.dsw.domain.Medico;
 
 @SpringBootApplication
 public class LivrariaMvcApplication {
@@ -22,6 +24,36 @@ public class LivrariaMvcApplication {
 		SpringApplication.run(LivrariaMvcApplication.class, args);
 	}
 
+	
+	@Bean
+	public CommandLineRunner demo(IMedicoDAO medicoDAO, BCryptPasswordEncoder encoder) {
+		return (args) -> {
+			Medico m1 = new Medico();
+			m1.setEmail("alexandre.santos.gualberto@gmail.com");
+			m1.setPassword(encoder.encode("123"));
+			m1.setRole("med");
+			m1.setName("Alexandre");
+			m1.setCRM("CRM/SP123456");
+			m1.setEspecialidade("Cardiologista");
+			m1.setEnabled(true);
+			medicoDAO.save(m1);
+
+			Medico m2 = new Medico();
+			m2.setEmail("eduardo.santos.gualberto@gmail.com");
+			m2.setPassword(encoder.encode("123"));
+			m2.setRole("med");
+			m2.setName("Eduardo");
+			m2.setCRM("CRM/SP123457");
+			m2.setEspecialidade("Endocrinologista");
+			m2.setEnabled(true);
+			medicoDAO.save(m2);
+
+
+		};
+	}
+	
+
+	/* 
 	@Bean
 	public CommandLineRunner demo(IUsuarioDAO usuarioDAO, BCryptPasswordEncoder encoder, IEditoraDAO editoraDAO, ILivroDAO livroDAO) {
 		return (args) -> {
@@ -93,4 +125,5 @@ public class LivrariaMvcApplication {
 			livroDAO.save(l3);
 		};
 	}
+	*/
 }
