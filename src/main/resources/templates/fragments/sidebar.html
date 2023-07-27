@@ -31,7 +31,7 @@
 		<div sec:authorize="hasRole('ROLE_ADMIN')">
 			<ul class="nav nav-pills">
 				<li class="nav-item"><span class="nav-link active"
-					th:text="#{sidebar.titulo.editora}"></span></li>
+					th:text="#{sidebar.titulo.editora}" style="background-color: rgb(0, 66, 54); color: #fff;"></span></li>
 				<li class="nav-item"><a class="nav-link"
 					th:href="@{/editoras/cadastrar}"> <i class="oi oi-plus"></i> <span
 						th:text="#{sidebar.link.cadastrar}"></span>
@@ -42,11 +42,11 @@
 				</a></li>
 			</ul>
 		</div>
-
+		
 		<div sec:authorize="hasRole('ROLE_ADMIN')">
 			<ul class="nav nav-pills">
 				<li class="nav-item"><span class="nav-link active"
-					th:text="#{sidebar.titulo.livro}"></span></li>
+					th:text="#{sidebar.titulo.livro}" style="background-color: rgb(0, 66, 54); color: #fff;"></span></li>
 				<li class="nav-item"><a class="nav-link"
 					th:href="@{/livros/cadastrar}"> <i class="oi oi-plus"></i> <span
 						th:text="#{sidebar.link.cadastrar}"></span>
@@ -61,13 +61,28 @@
 		<div sec:authorize="hasRole('ROLE_ADMIN')">
 			<ul class="nav nav-pills">
 				<li class="nav-item"><span class="nav-link active"
-					th:text="#{sidebar.titulo.usuario}"></span></li>
+					th:text="#{sidebar.titulo.paciente}" style="background-color: rgb(0, 66, 54); color: #fff;"></span></li>
 				<li class="nav-item"><a class="nav-link"
-					th:href="@{/usuarios/cadastrar}"> <i class="oi oi-plus"></i> <span
+					th:href="@{/pacientes/cadastrar}"> <i class="oi oi-plus"></i> <span
 						th:text="#{sidebar.link.cadastrar}"></span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
-					th:href="@{/usuarios/listar}"> <i class="oi oi-spreadsheet"></i>
+					th:href="@{/pacientes/listar}"> <i class="oi oi-spreadsheet"></i>
+						<span th:text="#{sidebar.link.listar}"></span>
+				</a></li>
+			</ul>
+		</div>
+
+		<div sec:authorize="hasRole('ROLE_ADMIN')">
+			<ul class="nav nav-pills">
+				<li class="nav-item"><span class="nav-link active"
+					th:text="#{sidebar.titulo.medico}" style="background-color: rgb(0, 66, 54); color: #fff;"></span></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/medicos/cadastrar}"> <i class="oi oi-plus"></i> <span
+						th:text="#{sidebar.link.cadastrar}"></span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/medicos/listar}"> <i class="oi oi-spreadsheet"></i>
 						<span th:text="#{sidebar.link.listar}"></span>
 				</a></li>
 			</ul>
