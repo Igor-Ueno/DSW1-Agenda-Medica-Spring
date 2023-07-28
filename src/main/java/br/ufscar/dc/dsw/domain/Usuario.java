@@ -8,37 +8,33 @@ import javax.validation.constraints.NotBlank;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Usuario")
-public class Usuario extends AbstractEntity<Long> {
+public class Usuario extends AbstractEntity<Long>{
   
 	@NotBlank
-    @Column(nullable = false, length = 20, unique = true)
-    private String username;
+    @Column(nullable = false, length = 64, unique = true)
+    private String email;
     
 	@NotBlank
     @Column(nullable = false, length = 64)
     private String password;
        
     @NotBlank
-    @Column(nullable = false, length = 60)
+    @Column(nullable = false, length = 64)
     private String name;
     
     @NotBlank
-    @Column(nullable = false, length = 14)
-    private String CPF;
-    
-    @NotBlank
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 64)
     private String role;
     
     @Column(nullable = false)
     private boolean enabled;
 		
-	public String getUsername() {
-		return username;
+	public String getEmail() {
+		return email;
 	}
 	
-	public void setUsername(String username) {
-		this.username = username;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	public String getPassword() {
@@ -57,15 +53,6 @@ public class Usuario extends AbstractEntity<Long> {
 		this.name = name;
 	}
 	
-	
-	public String getCPF() {
-		return CPF;
-	}
-
-	public void setCPF(String cPF) {
-		CPF = cPF;
-	}
-
 	public String getRole() {
 		return role;
 	}
