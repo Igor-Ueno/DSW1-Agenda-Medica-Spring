@@ -1,20 +1,25 @@
 package br.ufscar.dc.dsw.dao;
 
 import java.util.List;
+import java.sql.Date;
+import java.sql.Time;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 // import br.ufscar.dc.dsw.domain.Usuarios;
 import br.ufscar.dc.dsw.domain.Consulta;
+import br.ufscar.dc.dsw.domain.Usuarios;
 
 @SuppressWarnings("unchecked")
 public interface IConsultaDAO extends CrudRepository<Consulta, Long>{
     
     Consulta findById(long id);
 	
-	// Consulta findByCPF(String CPF);
+	List<Consulta> findAllByCPFpaciente(String CPF);
 
-    // Consulta findByCRM(String CRM);
+    List<Consulta> findAllByCRMmedico(String CRM);
 
 	List<Consulta> findAll();
 	
@@ -24,4 +29,12 @@ public interface IConsultaDAO extends CrudRepository<Consulta, Long>{
 
     // void deleteByConsulta(String Consulta);
 
+	@Query("SELECT u.CPF FROM Usuario u WHERE u.email = :email")
+	String getCPFByEmail(@Param("email") String email);
+
+	@Query("SELECT u.CRM FROM Usuario u WHERE u.email = :email")
+	String getCRMByEmail(@Param("email") String email);
+
+	@Query("SELECT c.hora FROM Consulta c WHERE c.data_consulta = :data")
+	List<Time> getHoraByData_consulta(@Param("data") Date data);
 }

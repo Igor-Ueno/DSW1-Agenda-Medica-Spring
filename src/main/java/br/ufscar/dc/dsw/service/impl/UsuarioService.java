@@ -1,7 +1,5 @@
 package br.ufscar.dc.dsw.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,8 +19,17 @@ public class UsuarioService implements IUsuarioService {
 		dao.save(usuario);
 	}
 
-	public void excluir(Long id) {
+	public void excluirPorEmail(String email) {
+		dao.deleteByEmail(email);
+	}
+
+	public void excluirPorId(Long id) {
 		dao.deleteById(id);
+	}
+
+	@Transactional(readOnly = true)
+	public Usuario buscarPorEmail(String email) {
+		return dao.findByEmail(email);
 	}
 
 	@Transactional(readOnly = true)
@@ -30,8 +37,4 @@ public class UsuarioService implements IUsuarioService {
 		return dao.findById(id.longValue());
 	}
 
-	@Transactional(readOnly = true)
-	public List<Usuario> buscarTodos() {
-		return dao.findAll();
-	}
 }

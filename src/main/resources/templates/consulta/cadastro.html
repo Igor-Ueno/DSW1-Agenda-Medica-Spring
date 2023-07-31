@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+    <section class="layout-content" layout:fragment="corpo">
+
+        <nav class="navbar navbar-expand-md bg-light">
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <i class="oi oi-caret-right"></i>
+                        <span th:text="#{consulta.listar.label}"></span>
+                    </li>
+                </ul>
+                <a class="btn btn-white-text btn-md" th:href="@{/consulta/cadastrar}" role="button" style="background-color: #28a745;"> 
+                    <span class="oi oi-plus" title="Cadastro" aria-hidden="true"></span> 
+                    <span th:text="#{consulta.cadastrar.label}"></span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="container" id="cadastro">
+
+            <div th:replace="fragments/alert"></div>
+
+            <form th:action="${consulta.stringData_consulta == null} ? @{/consultas/salvar} : @{/consultas/editar}"
+                th:object="${consulta}" method="POST">
+
+                <div class="form-row">
+                    
+                    <div class="form-group col-md-6">
+						<label th:text="#{consulta.paciente.label}" for="CPF"></label> 
+						<input type="text" class="form-control" id="CPF"
+                            th:value="${paciente.CPF}"
+							autofocus="autofocus"
+                            readonly="true"/>
+					</div>
+
+                    <div class="form-group col-md-6">
+						<label th:text="#{consulta.medico.label}" for="CRM"></label> 
+						<input type="text" class="form-control" id="CRM"
+                            th:value="${medico.CRM}"
+                            autofocus="autofocus"
+                            readonly="true"/>
+					</div>
+
+                    <div class="form-group col-md-6">
+                        <label th:text="#{consulta.data.label}" for="data"></label>
+                        <input type="date" class="form-control" id="data"
+                            th:field="*{stringData_consulta}"
+                            autofocus="autofocus"/>
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                        <label th:text="#{consulta.hora.label}" for="hora"></label> 
+                        <input type="time" class="form-control" id="hora"
+                            th:field="*{stringHora}"
+                            autofocus="autofocus"/>
+                    </div>
+        
+					<div class="form-group col-md-12">
+						<button type="submit" th:text="#{button.salvar.label}" style="background-color: #28a745;"
+							class="btn btn-white-text"></button>
+					</div>
+                </div>
+
+                <input type="hidden" id="id" th:field="*{id}" />
+            </form>
+        </div>
+    </section>
+</body>
+</html>

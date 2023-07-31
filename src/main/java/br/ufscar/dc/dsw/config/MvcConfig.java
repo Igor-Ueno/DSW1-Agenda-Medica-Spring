@@ -1,5 +1,6 @@
 package br.ufscar.dc.dsw.config;
 
+import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 import org.springframework.context.annotation.Bean;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import br.ufscar.dc.dsw.conversor.BigDecimalConversor;
+import br.ufscar.dc.dsw.conversor.StringToDateConverter;
 
 @Configuration
 @ComponentScan(basePackages = "br.ufscar.dc.dsw.config")
@@ -47,5 +49,7 @@ public class MvcConfig implements WebMvcConfigurer {
 	@Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(new BigDecimalConversor());
+		registry.addConverter(new StringToDateConverter());
     }
+
 }
